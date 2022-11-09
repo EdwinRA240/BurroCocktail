@@ -14,6 +14,7 @@ function NavBar() {
         <h1>BurroCocktail</h1>
         <ul>
             <li><Link to="/">RandomCocktail</Link></li>
+            <li><Link to="/ind">IndPage</Link></li>
         </ul>
     </header>
     </>

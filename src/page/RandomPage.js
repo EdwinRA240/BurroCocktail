@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 
-// const URL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
 
 function RandomPage() {
@@ -21,13 +20,11 @@ function RandomPage() {
 
   return (
     <>
-      <section className="cards">
-        {cocktails.map((cocktail) => {
-          return (
-            <Card img={cocktail.strDrinkThumb} title={cocktail.strDrink} />
-          );
-        })}
-      </section>
+    <section className="cards">
+      {cocktails.map((cocktail) => {
+        return <Card img={cocktail.strDrinkThumb} title={cocktail.strDrink} />;
+      })}
+    </section>
     </>
   );
 }
