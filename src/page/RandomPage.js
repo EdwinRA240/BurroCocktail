@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Card from "../components/Card";
 
-const URL = "www.thecocktaildb.com/api/json/v1/1/random.php";
+// const URL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
 
 function RandomPage() {
-  const [RandCocktail, setRandCocktail] = React.useState({});
+  const [cocktails, setCocktails] = useState([]);
 
-  React.useEffect(() => {
-    console.log("en el use effect");
+  useEffect(() => {
     getCocktail();
   }, []);
 
   const getCocktail = async () => {
     const response = await fetch(URL);
     const cocktail = await response.json();
-    console.log(cocktail);
-    setRandCocktail(cocktail);
+    setCocktails(cocktail.drinks);
   };
+
+  console.log(cocktails);
 
   return (
     <>
-      <h1>{RandCocktail.strDrink}</h1>
+      <section className="cards">
+        {cocktails.map((cocktail) => {
+          return (
+            <Card img={cocktail.strDrinkThumb} title={cocktail.strDrink} />
+          );
+        })}
+      </section>
     </>
   );
 }

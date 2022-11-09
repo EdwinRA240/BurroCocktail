@@ -1,26 +1,21 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import '../App.css';
+import logo from '../burroCool.png'
 
 function NavBar() {
 
   return (
     <>
-     <nav>
-        <div className="logo-container">
-          <img src="/burroCool.png" alt="no logo"></img> 
+      <header>
+        <div className="logo">
+            <img src={logo} alt=""/>
         </div>
-        <ul className="nav-items">
-            <Link className="nav-item nav-link" to="/">
-                Inicio
-            </Link>
-            <Link className="nav-item nav-link" to="/">
-              Nuevo entrenador
-            </Link>
-            <Link className="nav-item nav-link" to="/">
-              Acerca de nosotros
-            </Link>
+        <h1>BurroCocktail</h1>
+        <ul>
+            <li><Link to="/">RandomCocktail</Link></li>
         </ul>
-     </nav>
+    </header>
     </>
   );
 }
