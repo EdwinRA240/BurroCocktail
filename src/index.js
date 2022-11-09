@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route  } from "react-router-dom";
 import NavBar from './components/NavBar';
 import RandomPage from './page/RandomPage';
+import IndPage from './page/IndPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <NavBar/>
     <Routes>
         <Route path="/" element={<RandomPage/>} />
+        <Route path="/ind" element={<IndPage/>} />
         
       </Routes>
   </BrowserRouter>
