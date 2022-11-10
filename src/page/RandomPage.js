@@ -1,32 +1,57 @@
-import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
+import { Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import Ind from "../components/Ind";
 
-const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
+const URL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-function RandomPage() {
+const RandomPage = () => {
   const [cocktails, setCocktails] = useState([]);
+  const [rand, setRand] = useState(true);
 
   useEffect(() => {
     getCocktail();
-  }, []);
+  }, [rand]);
 
   const getCocktail = async () => {
     const response = await fetch(URL);
     const cocktail = await response.json();
-    setCocktails(cocktail.drinks);
+    setCocktails(cocktail.drinks[0]);
   };
 
-  console.log(cocktails);
+  // const randomBoolean = () => {
+  //   return setRand(false)
+  // }
 
   return (
     <>
-    <section className="cards">
-      {cocktails.map((cocktail) => {
-        return <Card img={cocktail.strDrinkThumb} title={cocktail.strDrink} />;
-      })}
-    </section>
+      <section>
+        <Ind
+          img={cocktails.strDrinkThumb}
+          instrucciones={cocktails.strInstructions}
+          title={cocktails.strDrink}
+          ingredientes={[
+            cocktails.strIngredient1,
+            cocktails.strIngredient2,
+            cocktails.strIngredient3,
+            cocktails.strIngredient4,
+            cocktails.strIngredient5,
+            cocktails.strIngredient6,
+          ]}
+        />
+      </section>
+      <div className="button">
+        <Button
+          variant="contained"
+          type="submit"
+          onClick={() => {
+            return rand === true ? setRand(false) : setRand(true);
+          }}
+        >
+          Random
+        </Button>
+      </div>
     </>
   );
-}
+};
 
 export default RandomPage;
