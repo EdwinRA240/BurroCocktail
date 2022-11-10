@@ -13,8 +13,9 @@ function NavBar() {
         </div>
         <h1>Cocktails</h1>
         <ul>
-            <li><Link to="/">RandomCocktail</Link></li>
-            <li><Link to="/ind">ByLetter</Link></li>
+            <li><Link to="/">Random</Link></li>
+            <li><Link to="/Ind">ByLetter</Link></li>
+            <li><Link to="/Name">ByName</Link></li>
         </ul>
     </header>
     </>
