@@ -1,13 +1,3 @@
-:root {
-    --white: #fff;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 header {
     width: 100%;
     height: auto;
@@ -17,14 +7,6 @@ header {
     flex-wrap: wrap;
     padding: 20px 20px;
 }
-
-.logo img {
-    width: 6rem;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
 ul {
     display: flex;
     justify-content: center;
@@ -33,6 +15,12 @@ ul {
     list-style: none;
     margin-left: 2%;
 }
+
+h4 {
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
 
 li>a {
     text-decoration: none;
@@ -75,6 +63,7 @@ section {
     height: auto;
     text-align: center;
     margin-bottom: 25px;
+    color: white;
 }
 
 .container iframe {
@@ -173,6 +162,7 @@ img#img-loading {
 
 @media screen and (max-width: 768px) {
     header {
+        justify-content: center;
         padding-bottom: 0px;
     }
 }
