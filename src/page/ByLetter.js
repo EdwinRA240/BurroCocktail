@@ -49,6 +49,7 @@ function RandomPage() {
               key={cocktail.idDrink}
               img={cocktail.strDrinkThumb}
               title={cocktail.strDrink}
+              onClick={(ev) => {console.log(ev.target.key);}}
             />
           );
         })}

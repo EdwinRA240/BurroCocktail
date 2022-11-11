@@ -18,10 +18,6 @@ const RandomPage = () => {
     setCocktails(cocktail.drinks[0]);
   };
 
-  // const randomBoolean = () => {
-  //   return setRand(false)
-  // }
-
   return (
     <>
       <section>
