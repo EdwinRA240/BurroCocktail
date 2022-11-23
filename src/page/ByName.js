@@ -38,7 +38,7 @@ const ByName = () => {
             autoComplete="off"
           />
           <Button variant="contained" type="submit">
-            Go
+            Go go
           </Button>
         </Stack>
       </form>
