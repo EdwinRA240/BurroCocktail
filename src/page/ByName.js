@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Card from "../components/Card";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 const URL =
-  "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=";
+  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
-function RandomPage() {
+const ByName = () => {
   const [cocktails, setCocktails] = useState([]);
-  const [letter, setLetter] = useState("A");
+  const [name, setName] = useState("");
 
   useEffect(() => {
     getCocktail();
-  }, [letter]);
+  }, [name]);
 
   const getCocktail = async () => {
-    const response = await fetch(`${URL}${letter}`);
+    const response = await fetch(`${URL}${name}`);
     const cocktail = await response.json();
     setCocktails(cocktail.drinks);
   };
 
-  const getLetter = (ev) => {
+  const getname = (ev) => {
     ev.preventDefault();
-    setLetter(ev.target.id.value);
+    setName(ev.target.id.value);
   };
 
   return (
     <>
-      <form className="form" onSubmit={getLetter}>
+      <form className="form" onSubmit={getname}>
         <Stack direction="row" spacing={1}>
           <TextField
             id="outlined-basic"
-            label="Enter a letter"
+            label="Enter a name"
             variant="outlined"
             name="id"
             autoComplete="off"
@@ -49,13 +49,12 @@ function RandomPage() {
               key={cocktail.idDrink}
               img={cocktail.strDrinkThumb}
               title={cocktail.strDrink}
-              onClick={(ev) => {console.log(ev.target.key);}}
             />
           );
         })}
       </section>
     </>
   );
-}
+};
 
-export default RandomPage;
+export default ByName;
